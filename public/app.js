@@ -25,8 +25,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 card.classList.add('break');
             }
 
-            // Store category in data attribute for easy filtering
+            // Store category and speaker in data attributes for easy filtering
             card.setAttribute('data-category', item.category.toLowerCase());
+            if (!item.isBreak) {
+                card.setAttribute('data-speaker', item.speaker.toLowerCase());
+            }
 
             // Construct HTML content
             let metaHtml = '';
@@ -60,17 +63,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             cards.forEach(card => {
                 const category = card.getAttribute('data-category');
-                // If search is empty, show all. 
-                // If it's a break, decide if we want to show it. 
-                // Usually in search, we might hide breaks if they don't match, 
-                // but let's just filter by text.
+                const speaker = card.getAttribute('data-speaker');
                 
-                // Rule: If search term is empty, show everything.
-                // If search term matches category, show it.
-                // Always show 'break' category? Or allow searching for "break"?
-                // Let's allow simple filtering.
-                
-                if (category.includes(searchTerm) || searchTerm === '') {
+                const matchesCategory = category && category.includes(searchTerm);
+                const matchesSpeaker = speaker && speaker.includes(searchTerm);
+
+                if (searchTerm === '' || matchesCategory || matchesSpeaker) {
                     card.classList.remove('hidden');
                 } else {
                     card.classList.add('hidden');

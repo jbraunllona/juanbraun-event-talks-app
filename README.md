@@ -7,7 +7,7 @@ This project automatically schedules a list of conference talks starting at 10:0
 ## Features
 
 - **Dynamic Scheduling:** Server-side logic automatically calculates start and end times based on talk duration.
-- **Category Filtering:** Users can filter the schedule by category (e.g., Backend, Frontend, AI).
+- **Smart Search:** Filter the schedule by **Category** (e.g., Backend) OR **Speaker** (e.g., Ryan Dahl).
 - **Responsive Design:** A clean, card-based UI that works on desktop and mobile.
 - **REST API:** Provides a JSON endpoint (`/api/schedule`) for the schedule data.
 
@@ -54,7 +54,9 @@ event-scheduler/
 ## Usage
 
 - **View Schedule:** The homepage displays the full schedule for the day.
-- **Filter:** Use the search bar at the top to filter talks by category (e.g., type "frontend" to see only frontend-related talks).
+- **Filter:** Use the search bar at the top to filter talks by:
+    - **Category:** e.g., "frontend", "AI"
+    - **Speaker:** e.g., "Ryan", "Simmons"
 
 ## API
 
